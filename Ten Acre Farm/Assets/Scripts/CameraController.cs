@@ -8,11 +8,11 @@ public class CameraController : MonoBehaviour
     public float offsetZ = 5f;
     public float smoothing = -2f;
 
-    // player transform component
+    
     Transform playerPos;
     void Start()
-    {        
-        // Find the player gameobject in the scene and get its transform component
+    {      
+        
         playerPos = FindObjectOfType<PlayerController>().transform;
     }
     
@@ -26,7 +26,6 @@ public class CameraController : MonoBehaviour
     {
         Vector3 targetPosition = new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z - offsetZ);
 
-        // Set the position accordingly
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing * Time.deltaTime);
     }
 }
